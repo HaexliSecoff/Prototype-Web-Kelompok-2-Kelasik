@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Journey | Kelasik Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/learning.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navigasi utama">
+      <a class="brand" href="index.html">
+        <span class="brand-dot">◆</span> KELASIK
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navLinks">
+        Menu
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="team.html">Our Team</a>
+        <a href="learning.html" class="active">Learning Journey</a>
+      </div>
+
+      <button id="themeToggle" class="theme-btn" aria-label="Ganti tema">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===================== LEARNING SECTION ===================== -->
+  <main class="page-content">
+    <div class="section-header">
+      <span class="section-tag">Materi Pembelajaran</span>
+      <h1>Apa Aja Yang Kami Pelajari 📚</h1>
+      <p>
+        Selama pelatihan KELASIK 2026, kami mempelajari berbagai materi dari
+        dasar desain hingga website interaktif. Klik tombol untuk melihat
+        tantangan yang kami hadapi.
+      </p>
+    </div>
+
+    <!-- FILTER TABS -->
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="js">JavaScript</button>
+    </div>
+
+    <!-- MODULE GRID -->
+    <div class="module-grid">
+
+      <!-- MODUL 1: FIGMA -->
+      <article class="learning-card" data-category="design">
+        <div class="learning-icon">🎨</div>
+        <h2>Merancang Website dengan Figma</h2>
+        <p>
+          Kami membuat sitemap, wireframe, dan desain visual tiga halaman
+          portfolio menggunakan Auto Layout dan Components.
+        </p>
+
+        <button
+          class="detail-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="figmaDetail"
+        >
+          Lihat tantangan
+        </button>
+
+        <div class="learning-detail" id="figmaDetail" hidden>
+          <p><strong>Tantangan:</strong> Menyamakan spacing tiap halaman.</p>
+          <p><strong>Solusi:</strong> Memakai Auto Layout dan komponen.</p>
+        </div>
+      </article>
+
+      <!-- MODUL 2: HTML CSS -->
+      <article class="learning-card" data-category="web">
+        <div class="learning-icon">💻</div>
+        <h2>Dasar HTML & CSS</h2>
+        <p>
+          Kami membangun struktur halaman dengan tag semantik dan mengatur
+          warna, tipografi, serta layout menggunakan Flexbox.
+        </p>
+
+        <button
+          class="detail-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="htmlcssDetail"
+        >
+          Lihat tantangan
+        </button>
+
+        <div class="learning-detail" id="htmlcssDetail" hidden>
+          <p><strong>Tantangan:</strong> CSS tidak terbaca saat pertama kali.</p>
+          <p><strong>Solusi:</strong> Memeriksa path file dan selector class.</p>
+        </div>
+      </article>
+
+      <!-- MODUL 3: JAVASCRIPT -->
+      <article class="learning-card" data-category="js">
+        <div class="learning-icon">⚡</div>
+        <h2>JavaScript Dasar</h2>
+        <p>
+          Kami membuat menu mobile yang bisa dibuka-tutup dan interaksi
+          toggle detail materi menggunakan DOM dan event.
+        </p>
+
+        <button
+          class="detail-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="jsDetail"
+        >
+          Lihat tantangan
+        </button>
+
+        <div class="learning-detail" id="jsDetail" hidden>
+          <p><strong>Tantangan:</strong> Menu tidak tertutup saat diklik lagi.</p>
+          <p><strong>Solusi:</strong> Memakai classList.toggle dan aria-expanded.</p>
+        </div>
+      </article>
+
+      <!-- MODUL 4: RESPONSIVE -->
+      <article class="learning-card" data-category="web">
+        <div class="learning-icon">📱</div>
+        <h2>Responsive Design</h2>
+        <p>
+          Kami memastikan website nyaman dibaca di ponsel, tablet, dan
+          desktop menggunakan media query dan Flexbox.
+        </p>
+
+        <button
+          class="detail-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="responsiveDetail"
+        >
+          Lihat tantangan
+        </button>
+
+        <div class="learning-detail" id="responsiveDetail" hidden>
+          <p><strong>Tantangan:</strong> Kartu anggota berdesakan di HP.</p>
+          <p><strong>Solusi:</strong> Grid menjadi satu kolom pada lebar ≤768px.</p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2026 KELASIK Project · Dibuat dengan ❤️ oleh Tim</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/learning.js" defer></script>
+</body>
+</html>

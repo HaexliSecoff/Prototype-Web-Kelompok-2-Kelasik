@@ -1,0 +1,185 @@
+/* ===================== LEARNING PAGE ===================== */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text-soft);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  color: var(--text);
+  border-color: var(--primary);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(243, 106, 56, 0.3);
+}
+
+/* Grid kartu materi */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+/* Kartu materi */
+.learning-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.learning-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.learning-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow);
+  border-color: var(--primary);
+}
+
+.learning-card:hover::before {
+  transform: scaleX(1);
+}
+
+.learning-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(243, 106, 56, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  margin-bottom: 0.4rem;
+}
+
+.learning-card h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.learning-card > p {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Tombol toggle detail */
+.detail-toggle {
+  align-self: flex-start;
+  padding: 0.65rem 1.2rem;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 0.5rem;
+}
+
+.detail-toggle:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Detail yang bisa dibuka-tutup */
+.learning-detail {
+  margin-top: 0.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(243, 106, 56, 0.06);
+  border-left: 3px solid var(--primary);
+  animation: fadeIn 0.3s ease;
+}
+
+.learning-detail[hidden] {
+  display: none;
+}
+
+.learning-detail p {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+
+.learning-detail p:last-child {
+  margin-bottom: 0;
+}
+
+.learning-detail strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card disembunyikan saat filter */
+.learning-card.hide {
+  display: none;
+}
+
+/* ===================== RESPONSIVE LEARNING ===================== */
+@media (max-width: 900px) {
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .learning-card {
+    padding: 1.5rem;
+  }
+
+  .learning-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+}
