@@ -7,6 +7,7 @@
   text-align: center;
 }
 
+/* --- MENTOR GRID (2 Bersisian) --- */
 .mentor-grid {
   display: flex;
   flex-wrap: wrap;
@@ -15,14 +16,35 @@
   margin-bottom: 3rem;
 }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.mentor-card {
+  width: 100%;
+  max-width: 380px;
+  flex: 1 1 320px;
+}
+
+/* --- ANGGOTA GRID (Susunan 2 - 1 - 2) --- */
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.75rem;
   margin-bottom: 2rem;
 }
 
-/* Kartu anggota */
+.members-grid .member-card {
+  width: 100%;
+  max-width: 350px; /* Lebar kartu anggota */
+  flex: 1 1 300px;
+}
+
+/* Trik biar kartu ke-3 (tengah) turun ke bawah dan posisinya di tengah */
+.members-grid .member-card:nth-child(3) {
+  flex-basis: 100%; /* Paksa turun baris */
+  max-width: 350px; /* Samain lebarnya biar tetep proporsional */
+  margin: 0 auto;   /* Bikin dia ke tengah */
+}
+
+/* --- KARTU UMUM --- */
 .member-card {
   background: var(--bg-soft);
   border: 1px solid var(--border);
@@ -39,42 +61,41 @@
   border-color: var(--primary);
 }
 
-/* Kartu mentor dibuat vertikal, agak gede, dan di tengah */
-.mentor-grid {
-  display: flex;
-  justify-content: center;
-}
-
-.mentor-card {
-  width: 100%;
-  max-width: 380px; /* Lebar maksimal per kartu mentor */
-  flex: 1 1 320px;  /* Fleksibel, minimal 320px */
-}
-
-.mentor-card .member-photo {
-  height: 280px; 
-}
-
+/* --- SETTINGAN FOTO BIAR GAK KEPOTONG --- */
 .member-photo {
   width: 100%;
-  aspect-ratio: 4 / 5; /* Ini kuncinya: proporsi 4:5 */
+  aspect-ratio: 4 / 5; /* Proporsi pas untuk foto portrait */
   overflow: hidden;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background-color: var(--bg-soft); /* Fallback warna */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .member-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center center;
+  object-fit: contain; /* KUNCI: Gambar utuh, gak dipotong! */
+  object-position: center bottom; /* Fokus agak ke bawah biar muka pas */
   transition: transform 0.4s ease;
+  
+  /* Trik Background Blur: Bikin pinggiran foto yang kosong jadi estetik */
+  background-image: inherit; 
+  background-size: cover;
+  background-position: center;
 }
 
+/* Hover effect */
 .member-card:hover .member-photo img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-/* Info */
+/* Mentor fotonya agak tinggi dikit */
+.mentor-card .member-photo {
+  aspect-ratio: 1 / 1; /* Mentor bikin agak kotak */
+}
+
+/* --- INFO TEKS --- */
 .member-info {
   padding: 1.5rem;
   display: flex;
@@ -104,7 +125,7 @@
   margin-top: 0.25rem;
 }
 
-/* Tag kontribusi */
+/* --- TAG KONTRIBUSI --- */
 .member-contrib {
   display: flex;
   flex-wrap: wrap;
@@ -123,28 +144,37 @@
   border: 1px solid rgba(243, 106, 56, 0.2);
 }
 
-/* ===================== RESPONSIVE TEAM ===================== */
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 1024px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .members-grid .member-card,
+  .mentor-card {
+    max-width: 45%; /* Di tablet jadi 2 kolom */
+  }
+  
+  /* Reset trik tengah biar jadi 2 kolom rapi */
+  .members-grid .member-card:nth-child(3) {
+    flex-basis: auto;
+    max-width: 45%;
+    margin: 0;
   }
 }
 
 @media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: 1fr;
+  /* Di HP semua jadi 1 kolom */
+  .members-grid .member-card,
+  .mentor-card,
+  .members-grid .member-card:nth-child(3) {
+    max-width: 100%;
+    flex-basis: 100%;
+    margin: 0;
   }
 
-  .mentor-card {
-    grid-template-columns: 1fr;
-  }
-
-  .mentor-card .member-photo {
-    min-height: 220px;
-  }
-
+  /* Di HP, gambar dibuat agak lebih pendek */
   .member-photo {
-    height: 220px;
+    aspect-ratio: 4 / 3; 
+  }
+  
+  .mentor-card .member-photo {
+    aspect-ratio: 4 / 3;
   }
 }
-
